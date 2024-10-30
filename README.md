@@ -1,4 +1,4 @@
-# Pipeline de Jenkins para Construir y Publicar Imagen de Docker
+# Pipeline de Jenkins para construir y publicar una imagen de Docker
 
 [![Video Tutorial](https://img.youtube.com/vi/5clu3ngTce0/hqdefault.jpg)](https://www.youtube.com/watch?v=5clu3ngTce0)
 
