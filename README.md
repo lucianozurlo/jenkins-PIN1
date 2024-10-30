@@ -10,31 +10,31 @@ El pipeline se divide en varias etapas, cada una responsable de una parte espec�
 
 ### Etapas
 
-1. **Verificar Instalación de Docker**
+1. **Verificar Instalación de Docker**:
     Verificar que Docker esté correctamente instalado en el entorno de Jenkins.
       ```bash
       docker --version
       ```
 
-2. **Limpiar Espacio de Trabajo**
+2. **Limpiar Espacio de Trabajo**:
     Limpiar el espacio de trabajo de Jenkins eliminando cualquier archivo o directorio sobrante de ejecuciones anteriores.
       ```groovy
       deleteDir()
       ```
 
-3. **Clonar Repositorio**
+3. **Clonar Repositorio**:
     Clonar el repositorio del proyecto desde GitHub.
       ```bash
       git clone https://github.com/EducacionMundose/PIN1.git
       ```
 
-4. **Construir Imagen de Docker**
+4. **Construir Imagen de Docker**:
     Construir la imagen de Docker utilizando el `Dockerfile` presente en el directorio clonado. La imagen se etiqueta como `lucianozurlo/mi-nginx:latest`.
       ```bash
       docker build -t lucianozurlo/mi-nginx:latest .
       ```
 
-5. **Publicar en Docker Hub**
+5. **Publicar en Docker Hub**:
     Iniciar sesión en Docker Hub utilizando las credenciales almacenadas en Jenkins y luego publicar la imagen construida en tu repositorio en Docker Hub.
       ```bash
       echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
