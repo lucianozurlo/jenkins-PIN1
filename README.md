@@ -11,36 +11,31 @@ El pipeline se divide en varias etapas, cada una responsable de una parte espec�
 ### Etapas
 
 1. **Verificar Instalación de Docker**
-    - **Descripción**: Verificar que Docker esté correctamente instalado en el entorno de Jenkins.
-    - **Comando**: 
+    Verificar que Docker esté correctamente instalado en el entorno de Jenkins.
       ```bash
       docker --version
       ```
 
 2. **Limpiar Espacio de Trabajo**
-    - **Descripción**: Limpiar el espacio de trabajo de Jenkins eliminando cualquier archivo o directorio sobrante de ejecuciones anteriores.
-    - **Comando**:
+    Limpiar el espacio de trabajo de Jenkins eliminando cualquier archivo o directorio sobrante de ejecuciones anteriores.
       ```groovy
       deleteDir()
       ```
 
 3. **Clonar Repositorio**
-    - **Descripción**: Clonar el repositorio del proyecto desde GitHub.
-    - **Comando**:
+    Clonar el repositorio del proyecto desde GitHub.
       ```bash
       git clone https://github.com/EducacionMundose/PIN1.git
       ```
 
 4. **Construir Imagen de Docker**
-    - **Descripción**: Construir la imagen de Docker utilizando el `Dockerfile` presente en el directorio clonado. La imagen se etiqueta como `lucianozurlo/mi-nginx:latest`.
-    - **Comando**:
+    Construir la imagen de Docker utilizando el `Dockerfile` presente en el directorio clonado. La imagen se etiqueta como `lucianozurlo/mi-nginx:latest`.
       ```bash
       docker build -t lucianozurlo/mi-nginx:latest .
       ```
 
 5. **Publicar en Docker Hub**
-    - **Descripción**: Iniciar sesión en Docker Hub utilizando las credenciales almacenadas en Jenkins y luego publicar la imagen construida en tu repositorio en Docker Hub.
-    - **Comandos**:
+    Iniciar sesión en Docker Hub utilizando las credenciales almacenadas en Jenkins y luego publicar la imagen construida en tu repositorio en Docker Hub.
       ```bash
       echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
       docker push lucianozurlo/mi-nginx:latest
@@ -48,25 +43,11 @@ El pipeline se divide en varias etapas, cada una responsable de una parte espec�
 
 ### Acciones Posteriores
 
-- **Limpiar**: Al final, limpiar el espacio de trabajo para asegurar que no queden residuos de la construcción.
+Al final, limpiar el espacio de trabajo para asegurar que no queden residuos de la construcción.
     ```groovy
     deleteDir()
     ```
 
-## Requisitos
-
-- **Jenkins**: Debe estar instalado y configurado con los complementos necesarios.
-- **Docker**: Debe estar instalado en el agente donde se ejecuta el pipeline.
-- **Credenciales de Docker Hub**: Asegurarse de que las credenciales de Docker Hub estén configuradas en Jenkins con el ID `dockerhub-id`.
-
-## Cómo Usar
-
-1. Configurar el entorno de Jenkins y asegurar que Docker esté instalado.
-2. Crear un nuevo trabajo de pipeline en Jenkins.
-3. Copiar el script del pipeline en el campo correspondiente o hacer referencia al `Jenkinsfile` en tu repositorio.
-4. Ejecutar el pipeline desde la interfaz de Jenkins.
-
-Este pipeline automatiza el proceso de construcción y publicación de imágenes de Docker, permitiendo que los desarrolladores se enfoquen en el código en lugar de la infraestructura.
 
 ## Pipeline
 
