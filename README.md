@@ -1,5 +1,9 @@
 # Pipeline de Jenkins para Construir y Publicar Imagen de Docker
 
+[![Video Tutorial](https://img.youtube.com/vi/5clu3ngTce0/hqdefault.jpg)](https://www.youtube.com/watch?v=5clu3ngTce0)
+
+**Descripción**: Este video proporciona una guía paso a paso sobre cómo configurar y ejecutar un pipeline de Jenkins para construir y publicar imágenes de Docker.
+
 Este documento describe el pipeline de Jenkins utilizado para construir y publicar una imagen de Docker para un proyecto. El pipeline se divide en varias etapas, cada una realizando tareas específicas para asegurar una construcción y publicación exitosa de la imagen.
 
 ## Estructura del Pipeline
